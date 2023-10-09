@@ -71,7 +71,7 @@ module.exports = () => {
         console.error(error);
       }
 
-      res.status(200).json(produto);
+      res.status(200).json(produto[0]);
 
     }
   
