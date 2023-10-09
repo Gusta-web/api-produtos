@@ -4,8 +4,6 @@ module.exports = () => {
     const axios = require('axios');
   
     controller.listaProdutos = async (req, res) => {
-
-      console.log("Entrou na api")
       
       let products = null
       try {
@@ -58,7 +56,24 @@ module.exports = () => {
       res.status(200).json(products);
       }
     
-    
+    controller.listaProdutoUnico = async (req, res) => {
+      let id = req.params.id;
+
+      let produto = null
+      try {
+        let response = await axios.get('http://localhost:3001/apiProdutos/Produtos');
+        response = response.data
+
+        produto = response.filter(res => (res.ID == id))
+
+        
+      } catch (error) {
+        console.error(error);
+      }
+
+      res.status(200).json(produto);
+
+    }
   
     return controller;
   }
