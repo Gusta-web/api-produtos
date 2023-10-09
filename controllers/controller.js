@@ -61,7 +61,7 @@ module.exports = () => {
 
       let produto = null
       try {
-        let response = await axios.get('http://localhost:3001/apiProdutos/Produtos');
+        let response = await axios.get('https://api-produtos-95rn.onrender.com/apiProdutos/Produtos');
         response = response.data
 
         produto = response.filter(res => (res.ID == id))
